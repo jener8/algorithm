@@ -2,6 +2,9 @@ import Link from "next/link"
 import { siteConfig } from "@/lib/config"
 
 export function SiteFooter() {
+  // Extract domain name without protocol for display
+  const domainName = new URL(siteConfig.url).hostname
+
   return (
     <footer className="border-t py-8 bg-gray-50">
       <div className="container text-center text-gray-600">
@@ -10,7 +13,7 @@ export function SiteFooter() {
         </p>
         <p className="text-sm mt-1">
           <a href={siteConfig.url} className="hover:underline">
-            {siteConfig.url.replace(/^https?:\/\//, "")}
+            {domainName}
           </a>
         </p>
         <div className="flex justify-center gap-4 mt-4">

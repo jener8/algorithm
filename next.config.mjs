@@ -10,21 +10,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        has: [
-          {
-            type: 'host',
-            value: 'seeingthealgorithm.com',
-          },
-        ],
-        destination: 'http://seeingthealgorithm.com/',
-        permanent: true,
-      },
-    ]
-  },
+  // Remove HTTPS redirects since all-inkl.com forces HTTP
 }
 
 export default nextConfig

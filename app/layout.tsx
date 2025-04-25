@@ -6,13 +6,16 @@ import { siteConfig } from "@/lib/config"
 
 const inter = Inter({ subsets: ["latin"] })
 
+// Create URL object safely, handling both HTTP and HTTPS
+const siteUrl = new URL(siteConfig.url)
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: siteUrl,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${siteConfig.url}${siteConfig.ogImage}`,
+        url: `${siteConfig.ogImage}`,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${siteConfig.url}${siteConfig.ogImage}`],
+    images: [`${siteConfig.ogImage}`],
     creator: "@algoartresearch",
   },
   icons: {

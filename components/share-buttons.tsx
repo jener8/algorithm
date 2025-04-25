@@ -12,7 +12,8 @@ interface ShareButtonsProps {
 
 export function ShareButtons({ title, path }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
-  const url = `${siteConfig.url}${path}`
+  // Ensure we're using the full URL with the correct protocol
+  const url = `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`
   const encodedUrl = encodeURIComponent(url)
   const encodedTitle = encodeURIComponent(`${title} | ${siteConfig.name}`)
 
