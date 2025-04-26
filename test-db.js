@@ -1,18 +1,14 @@
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const mysql = require('mysql2/promise');
 
-async function main() {
+async function testConnection() {
   try {
-    console.log('Testing database connection...')
-    const result = await prisma.$queryRaw`SELECT 1+1 as result`
-    console.log('✅ Connected to database successfully!')
-    console.log(result)
+    // Replace with your actual connection details
+    const connection = await mysql.createConnection(process.env.DATABASE_URL);
+    console.log('Connection successful!');
+    await connection.end();
   } catch (error) {
-    console.error('❌ Failed to connect to database:')
-    console.error(error)
-  } finally {
-    await prisma.$disconnect()
+    console.error('Connection failed:', error.message);
   }
 }
 
-main()
+testConnection();
