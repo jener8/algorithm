@@ -50,7 +50,7 @@ export default function ResearchPage() {
         <li><b>Article 19: Freedom of Speech</b> — Big Tech avoids ethical responsibility.</li>
         <li><b>Article 29: The right to be respected and respect others</b> — Teens' excessive (brain rot) screen time has reduced social interaction and real community engagement.</li>
         <li><b>KOSA</b> — Kids Online Safety Act — subjected to lobbying and dilution.</li>
-        <li><b>Article 25: Mother and child’s right to protection</b> — Teens are not protected from harmful content.</li>
+        <li><b>Article 25: Mother and child's right to protection</b> — Teens are not protected from harmful content.</li>
       </ul>
       <hr className="my-6" />
 
