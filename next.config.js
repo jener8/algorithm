@@ -8,6 +8,23 @@ const nextConfig = {
     },
     // Configure webpack
     webpack: (config) => {
+      // Add a rule to handle Tailwind CSS
+      config.module.rules.push({
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'tailwindcss',
+                  'autoprefixer',
+                ],
+              },
+            },
+          },
+        ],
+      })
       return config
     },
   }
